@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <title>Mustache test</title>
+
+    <script type="text/javascript" src="venues.js" />
+    <!-- Libraries -->
+    <script type="text/javascript" src="https://raw.githubusercontent.com/janl/mustache.js/master/mustache.min.js" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.min.js" />
+
+
+</head>
+
+<body onload="onload">
+    <div id="target">
+        Name: {{name}}</br>
+        Location: {{#location}} {{.}} {{/location}}</br>
+        Tags: {{#tags}} *{{.}} {{/tags}}</br>
+        Price: {{price_range}} </br>
+    </div>
+    <script type="text/javascript">
+    function onload() {
+
+        var template = $("#target").html();
+        var mustached_html = Mustache.to_html(template, venue);
+
+        // var rendered = Mustache.render(template, venue);
+        $(document).write(mustached_html);
+    }
+    </script>
+</body>
+
+</html>
